@@ -1,0 +1,16 @@
+{
+  "name": "dotnode-js",
+  "version": "1.0.0",
+  "description": "A .NET Core & node combo.",
+  "main": "src/dotnode.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Thorsten Wesseler",
+  "license": "MIT",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^1.7.1"
+  },
+  "gypfile": true,
+  "types": "src/dotnode.d.ts"
+}
