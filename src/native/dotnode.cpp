@@ -50,6 +50,12 @@ struct CoreClrInfo
 
 static CoreClrInfo *coreClrInfo = nullptr;
 
+Napi::Value isInitialized(const Napi::CallbackInfo &info)
+{
+    Napi::Env env = info.Env();
+    return Napi::Boolean::New(env, coreClrInfo != nullptr);
+}
+
 Napi::Value
 initializeDotnode(const Napi::CallbackInfo &info)
 {
@@ -101,7 +107,7 @@ initializeDotnode(const Napi::CallbackInfo &info)
 #if WINDOWS
     // <Snippet2>
     coreClrInfo->initializeCoreClr = (coreclr_initialize_ptr)GetProcAddress(coreClr, "coreclr_initialize");
-    coreClrInfo->createManagedDelegate = () GetProcAddress(coreClr, "coreclr_create_delegate");
+    coreClrInfo->createManagedDelegate = (coreclr_create_delegate_ptr)GetProcAddress(coreClr, "coreclr_create_delegate");
     coreClrInfo->shutdownCoreClr = (coreclr_shutdown_ptr)GetProcAddress(coreClr, "coreclr_shutdown");
     // </Snippet2>
 #elif LINUX
@@ -323,6 +329,7 @@ void BuildTpaList(const char *directory, const char *extension, std::string &tpa
 Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
     exports.Set(Napi::String::New(env, "initialize"), Napi::Function::New(env, initializeDotnode));
+    exports.Set(Napi::String::New(env, "isInitialized"), Napi::Function::New(env, isInitialized));
     exports.Set(Napi::String::New(env, "invokeMethod"), Napi::Function::New(env, callFunction));
     exports.Set(Napi::String::New(env, "shutdown"), Napi::Function::New(env, shutdownDotnode));
 

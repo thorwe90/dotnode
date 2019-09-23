@@ -4,7 +4,7 @@
       "target_name": "dotnode",
       "cflags!": ["-fno-exceptions"],
       "cflags_cc!": ["-fno-exceptions"],
-      "sources": ["native/dotnode.cpp"],
+      "sources": ["src/native/dotnode.cpp"],
       "defines": ["NAPI_DISABLE_CPP_EXCEPTIONS"],
       "conditions": [
         ["OS=='linux'", { "defines": ["LINUX"] }],

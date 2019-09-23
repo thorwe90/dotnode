@@ -62,3 +62,6 @@ typings/
 
 # build folder
 build
+
+# mac specific
+.DS_Store

@@ -6,7 +6,8 @@ export const dotnode: {
     methodName: string,
     jsonArgs?: string
   ): string;
-  shutdown();
+  shutdown(): void;
+  isInitialized(): boolean;
 };
 
 export function dotnodeInvoke<TArgs, TResult>(
