@@ -1,10 +1,14 @@
 {
   "name": "dotnode-js",
   "version": "1.0.0",
-  "description": "A .NET Core & node combo.",
+  "description": "Embedd .NET Core into your node application.",
   "main": "src/dotnode.js",
   "scripts": {},
-  "keywords": [],
+  "keywords": [
+    "dotnet",
+    ".net core",
+    "embedding"
+  ],
   "author": "Thorsten Wesseler",
   "license": "MIT",
   "dependencies": {
