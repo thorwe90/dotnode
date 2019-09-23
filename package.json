@@ -1,7 +1,11 @@
 {
   "name": "dotnode-js",
   "version": "1.0.0",
-  "description": "Embedd .NET Core into your node application.",
+  "description": "Embed .NET Core into your node application.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thorwe90/dotnode.git"
+  },
   "main": "src/dotnode.js",
   "scripts": {},
   "keywords": [
